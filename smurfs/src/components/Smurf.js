@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class Smurf extends Component {
+class Smurf extends Component {
     state = {  name: '', age: '', height: ''};
   render() {
     return (
@@ -14,11 +14,13 @@ export default class Smurf extends Component {
   }
 }
 
+export default Smurf;
+
 
 
 
 
 // export default connect(
 //     null,
-//     { deleteSmurf, editSmurf }
+//     { }
 //   )(Smurf);
