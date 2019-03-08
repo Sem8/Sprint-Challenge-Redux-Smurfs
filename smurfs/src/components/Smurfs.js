@@ -12,7 +12,7 @@ class Smurfs extends Component {
 
   render() {
     return (
-      <div>
+      <div className='allSmurfs'>
           {this.props.smurfs.map(smurf => (
           <Smurf key={smurf.id} smurf={smurf} />
         ))}

@@ -14,8 +14,11 @@
   There is no need for 'combineReducers' in this project.
   Components can then read your store as, `state` and not `state.fooReducer`. */
 import {FETCH_SMURFS_START, FETCH_SMURFS_SUCCESS, FETCH_SMURFS_FAIL, ADD_SMURFS_START,
-  ADD_SMURFS_SUCCESS,
-  ADD_SMURFS_FAIL,} from '../actions';
+  ADD_SMURFS_SUCCESS, ADD_SMURFS_FAIL, 
+  DELETE_SMURFS_START,
+  DELETE_SMURFS_SUCCESS,
+  DELETE_SMURFS_FAIL,
+} from '../actions';
 
 const initialState = {
   smurfs: [],
@@ -39,7 +42,7 @@ export const smurfsReducer = (state = initialState, action) => {
       return {
         ...state,
         fetchingSmurf: false,
-        smurfs: [...state.smurfs, ...action.payload]
+        smurfs: [...state.smurfs, ...action.payload]        
       };
 
     case FETCH_SMURFS_FAIL:
@@ -68,6 +71,26 @@ export const smurfsReducer = (state = initialState, action) => {
         addingSmurf: false,
         error: action.payload
       }
+
+    case DELETE_SMURFS_START:
+      return {
+        ...state,
+        deletingSmurf: true,
+        error: null
+      }
+    case DELETE_SMURFS_SUCCESS:
+      return {
+        ...state,
+        smurf: state.smurfs.filter(smurf => smurf.id !== action.payload),
+        deletingSmurf: false,
+        error: null
+      }
+    case DELETE_SMURFS_FAIL:
+      return {
+        ...state,
+        deletingSmurf: false,
+        error: action.payload
+      };
 
       default:
         return state;

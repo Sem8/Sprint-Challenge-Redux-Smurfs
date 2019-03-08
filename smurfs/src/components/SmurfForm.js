@@ -21,8 +21,6 @@ class SmurfForm extends Component {
             this.props.addSmurf(this.state);
             this.setState({ name: '', age: '', height: ''});
         }
-
-
     
   render() {
     return (
@@ -54,9 +52,10 @@ class SmurfForm extends Component {
           />
           </form>
           <button onClick={this.submitHandler}>Add smurf</button> 
-          <section className='allSmurfsSection'>
+          
+          {/* <section className='allSmurfsSection'>
               <Smurfs />
-          </section>       
+          </section>        */}
       </div>
     )
   }
