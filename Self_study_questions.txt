@@ -1,0 +1,20 @@
+1. In your own words, describe actions, reducers and the store and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' 
+in a redux application?
+
+1an. Reducers are functions that changes an applications' state changes in response to actions that we specify. Actions in redux contain information that 
+send data from your application to your store, kind of like name of your function and the name of the parameter of your function. Store in redux contains the whole state
+or all the data of your app. Store is known as single source of truth because it has a single process for information to be added and removed from the state.
+
+
+2. What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+2an. Application state is global, and component state is local. Redux, uses stores to hold application state. That means any component, anywhere in the app can access 
+it (kind of like a database) so long as connect to it. Component state however, lives within that specific component. As such, it can only be updated within that 
+component and passed down to its children via props.
+
+3. Describe redux-thunk, what does it allow us to do? How does it change our action-creators?
+
+3an. Redux Thunk middleware allows you to write action creators that return a function instead of an action. The thunk can be used to delay the dispatch of an action, 
+or to dispatch only if a certain condition is met. The inner function receives the store methods dispatch and getState as parameters. Redux Thunk middleware allows 
+you to write action creators that return a function instead of an action. The thunk can be used to delay the dispatch of an action, or to dispatch only if a certain 
+condition is met, for example asynchronous API calls. 
