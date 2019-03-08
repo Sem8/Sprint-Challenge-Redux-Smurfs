@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import Smurfs from './Smurfs';
+import {addSmurf} from '../actions';
 
 class SmurfForm extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
+    
+        state = {
             name: '',
             age: '',
             height: ''
         }
-    }
+    
   render() {
     return (
       <div>
@@ -47,4 +46,4 @@ class SmurfForm extends Component {
 };
 
 
-export default connect(null, {/*imported action add smurfs */})(SmurfForm);
+export default connect(null, { addSmurf })(SmurfForm);
