@@ -18,6 +18,9 @@ import {FETCH_SMURFS_START, FETCH_SMURFS_SUCCESS, FETCH_SMURFS_FAIL, ADD_SMURFS_
   DELETE_SMURFS_START,
   DELETE_SMURFS_SUCCESS,
   DELETE_SMURFS_FAIL,
+  EDIT_SMURFS_START,
+  EDIT_SMURFS_SUCCESS,
+  EDIT_SMURFS_FAIL
 } from '../actions';
 
 const initialState = {
@@ -56,7 +59,7 @@ export const smurfsReducer = (state = initialState, action) => {
       return {
         ...state,
         addingSmurf: true,
-        error: null,
+        error: null
       };
 
     case ADD_SMURFS_SUCCESS:
@@ -91,9 +94,28 @@ export const smurfsReducer = (state = initialState, action) => {
         deletingSmurf: false,
         error: action.payload
       };
+    case EDIT_SMURFS_START:
+      return {
+        ...state,
+        updatingSmurf: true,
+        error: null
+      }
+    case EDIT_SMURFS_SUCCESS:
+      return {
+        ...state,
+        updatingSmurf: false,
+        smurfs: state.smurfs.map(smurf => 
+          smurf.id === action.payload.id ? action.payload : smurf ),
+        error: null
+      }
+      case EDIT_SMURFS_FAIL:
+      return {
+        ...state,
+        updatingSmurf: false,
+        error: action.payload
+      }   
 
       default:
         return state;
   }
-
 }

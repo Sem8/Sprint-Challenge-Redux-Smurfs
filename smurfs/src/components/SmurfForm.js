@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import Smurfs from './Smurfs';
+// import Smurfs from './Smurfs';
 import {addSmurf} from '../actions';
 
 class SmurfForm extends Component {    
@@ -53,9 +53,6 @@ class SmurfForm extends Component {
           </form>
           <button onClick={this.submitHandler}>Add smurf</button> 
           
-          {/* <section className='allSmurfsSection'>
-              <Smurfs />
-          </section>        */}
       </div>
     )
   }
